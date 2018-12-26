@@ -8,22 +8,24 @@ agent:
 blocks:
   - name: Unit tests
     task:
+      env_vars:
+        - name: USER
+          value: postgres
       prologue:
         commands:
           - checkout
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - sem-service start postgres
           - bundle install
-          - bundle exec rake db:setup
-          - bundle exec rake db:migrate
+          - DATABASE_USER=$USER bundle exec rake db:setup
+          - DATABASE_USER=$USER bundle exec rake db:migrate
       jobs:
       - name: RSpec - model tests
         commands:
-          - bundle exec rspec spec/models
-
+          - DATABASE_USER=$USER bundle exec rspec spec/models
       - name: RSpec - controller tests
         commands:
-          - bundle exec rspec spec/controllers
+          - DATABASE_USER=$USER bundle exec rspec spec/controllers
 
 promotions:
   - name: Deploy to Heroku
