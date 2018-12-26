@@ -24,8 +24,8 @@ blocks:
           - git remote add heroku $HEROKU_REMOTE
           - git push heroku -f $SEMAPHORE_GIT_BRANCH:master
           - touch ~/.netrc
-          - echo "machine api.heroku.com" > ~/.netrc
-          - echo "  login supercreed2@gmail.com" > ~/.netrc
-          - echo "  password 9f22befd-5d9d-47f7-af8c-0c3677773e01" > ~/.netrc
+          - echo "machine api.heroku.com" >> ~/.netrc
+          - echo "  login supercreed2@gmail.com" >> ~/.netrc
+          - echo "  password 9f22befd-5d9d-47f7-af8c-0c3677773e01" >> ~/.netrc
           - cat ~/.netrc
           - heroku run --exit-code -- bundle exec rake db:migrate
