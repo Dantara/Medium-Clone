@@ -17,15 +17,16 @@ blocks:
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - sem-service start postgres
           - bundle install
-          - DATABASE_USER=$USER bundle exec rake db:setup
-          - DATABASE_USER=$USER bundle exec rake db:migrate
+          - export DATABASE_USER=$USER
+          - bundle exec rake db:setup
+          - bundle exec rake db:migrate
       jobs:
       - name: RSpec - model tests
         commands:
-          - DATABASE_USER=$USER bundle exec rspec spec/models
+          - bundle exec rspec spec/models
       - name: RSpec - controller tests
         commands:
-          - DATABASE_USER=$USER bundle exec rspec spec/controllers
+          - bundle exec rspec spec/controllers
 
 promotions:
   - name: Deploy to Heroku
