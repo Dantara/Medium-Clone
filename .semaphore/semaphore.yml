@@ -6,6 +6,15 @@ agent:
     os_image: ubuntu1804
 
 blocks:
+  - name: Setup
+    task:
+      jobs:
+        - name: Bundle
+          commands:
+          - checkout
+          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - bundle install --deployment -j 4 --path vendor/bundle
+          - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
   - name: Unit tests
     task:
       env_vars:
@@ -16,8 +25,7 @@ blocks:
           - checkout
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - sem-service start postgres
-          - bundle install
-          - export DATABASE_USER=postgres
+          - bundle install --deployment --path vendor/bundle
           - bundle exec rake db:setup
           - bundle exec rake db:migrate
       jobs:
