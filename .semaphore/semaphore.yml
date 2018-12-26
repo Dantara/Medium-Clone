@@ -6,13 +6,24 @@ agent:
     os_image: ubuntu1804
 
 blocks:
-  - name: "Unit tests"
+  - name: Unit tests
     task:
-      jobs:
-      - name: RSpec
+      prologue:
         commands:
           - checkout
-          - echo "make rspec"
+          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - sem-service start postgres
+          - bundle install
+          - bundle exec rake db:setup
+          - bundle exec rake db:migrate
+      jobs:
+      - name: RSpec - model tests
+        commands:
+          - bundle exec rspec spec/models
+
+      - name: RSpec - controller tests
+        commands:
+          - bundle exec rspec spec/controllers
 
 promotions:
   - name: Deploy to Heroku
