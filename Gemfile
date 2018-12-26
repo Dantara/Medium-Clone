@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'jquery-rails'
 
+gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
