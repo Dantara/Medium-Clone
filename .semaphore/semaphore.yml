@@ -17,7 +17,7 @@ blocks:
           - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
           - sem-service start postgres
           - bundle install
-          - export DATABASE_USER=$USER
+          - export DATABASE_USER=postgres
           - bundle exec rake db:setup
           - bundle exec rake db:migrate
       jobs:
