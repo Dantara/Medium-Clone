@@ -17,8 +17,7 @@
             <div class="form-actions">
                 <%= f.button :submit, "Log in", {class: "btn-primary"} %>
                 <%= link_to "Sign up", new_registration_path(resource_name) %>
-                <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, { class: "to_the_right btn"} %>
-
+                <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, { class: "to_the_right btn" } %>
             </div>
         <% end %>
 
