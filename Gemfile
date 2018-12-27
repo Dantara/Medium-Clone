@@ -21,6 +21,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'bootswatch-rails'
 gem 'jquery-rails'
+gem 'omniauth-google-oauth2'
 
 gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
