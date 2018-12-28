@@ -18,8 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 gem "slim-rails"
 
 gem 'simple_form'
-gem 'bootstrap-sass', '~> 3.4.0'
-gem 'bootswatch-rails'
+gem 'bootstrap', '~> 4.2.1'
+gem 'bootswatch'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 

@@ -2,9 +2,9 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap-sprockets";
+@import "bootswatch/materia/variables";
 @import "bootstrap";
-@import "bootswatch/lumen/bootswatch";
+@import "bootswatch/materia/bootswatch";
 
 .to_the_right{
     float: right;
