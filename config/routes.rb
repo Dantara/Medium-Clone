@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'comment/create/:id', to: "comment#create", as: :comment_create
   get 'post/new'
   get 'home/index'
   post 'post/create'

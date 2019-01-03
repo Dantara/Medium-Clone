@@ -21,6 +21,8 @@ class PostController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = Comment.where(post_id: @post.id)
   end
 
   def show_draft
