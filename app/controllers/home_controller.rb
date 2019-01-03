@@ -5,4 +5,8 @@ class HomeController < ApplicationController
     @posts = Post.all_visible
   end
 
+  def drafts
+    @posts = Post.where(done: false, user_id: current_user.id)
+  end
+
 end

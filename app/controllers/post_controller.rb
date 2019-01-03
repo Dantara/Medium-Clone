@@ -1,6 +1,6 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: [:show, :show_draft, :destroy]
+  before_action :set_post, only: [:show, :show_draft, :update, :destroy]
 
   def new
     @post = current_user.posts.new
@@ -24,6 +24,19 @@ class PostController < ApplicationController
   end
 
   def show_draft
+  end
+
+  def update
+    @post.update(post_params)
+
+    if params["commit"] == "Save as a post"
+      @post.done = true
+    else
+      @post.done = false
+    end
+
+    @post.save
+    redirect_to root_path
   end
 
   def destroy
