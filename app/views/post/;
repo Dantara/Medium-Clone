@@ -1,0 +1,4 @@
+.row
+  .col-sm-6.col-sm-offset-3
+    h2 Adding new post
+    == simple_form_for @post
