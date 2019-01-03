@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, :first_name, :second_name, presence: true
 
   has_many :posts
+  has_many :comments
 
   def self.from_omniauth(access_token)
     data = access_token.info
