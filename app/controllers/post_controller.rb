@@ -19,7 +19,6 @@ class PostController < ApplicationController
   end
 
   def show
-    p post
   end
 
   def show_draft
@@ -50,3 +49,4 @@ class PostController < ApplicationController
   end
 
 end
+

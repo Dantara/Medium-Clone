@@ -7,7 +7,6 @@ class HomeController < ApplicationController
 
   def drafts
     @posts = Post.where(done: false, user_id: current_user.id)
-    puts @posts
   end
 
 end
