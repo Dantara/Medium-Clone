@@ -46,7 +46,13 @@ GEM
     autoprefixer-rails (9.4.3)
       execjs
     bcrypt (3.1.12)
+    better_errors (2.5.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootstrap (4.2.1)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
@@ -55,8 +61,12 @@ GEM
       autoprefixer-rails (>= 6.0.3)
     builder (3.2.3)
     byebug (10.0.2)
+    coderay (1.1.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    debug_inspector (0.0.3)
+    decent_exposure (3.0.0)
+      activesupport (>= 4.0)
     devise (4.5.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -231,9 +241,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootstrap (~> 4.2.1)
   bootswatch
   byebug
+  decent_exposure
   devise
   jbuilder (~> 2.5)
   jquery-rails

@@ -22,6 +22,7 @@ gem 'bootstrap', '~> 4.2.1'
 gem 'bootswatch'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
+gem 'decent_exposure'
 
 gem 'devise'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -44,6 +45,8 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 

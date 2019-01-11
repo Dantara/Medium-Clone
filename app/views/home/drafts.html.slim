@@ -13,5 +13,4 @@
               h5 = p.title
             td
               = link_to "View", draft_show_path(p.id), {class: "btn btn-primary"}
-              - if p.user_id == current_user.id
-                = link_to "Delete", post_destroy_path(p.id), {class: "btn btn-danger left-margin", method: "delete"}
+              = link_to "Delete", post_destroy_path(p.id), {class: "btn btn-danger left-margin", method: "delete"}
