@@ -8,38 +8,26 @@ class PostController < ApplicationController
   end
 
   def create
-    if params["commit"] == "Create Post"
-      post.done = true
-    else
-      post.done = false
-    end
-
+    post.done = params["commit"] == "Create Post"
     post.save
+
     redirect_to root_path
   end
 
   def show
   end
 
-  def show_draft
-  end
-
   def update
     post.update(post_params)
-
-    if params["commit"] == "Save as a post"
-      post.done = true
-    else
-      post.done = false
-    end
-
+    post.done = params["commit"] == "Save as a post"
     post.save
+
     redirect_to root_path
   end
 
   def destroy
     post.destroy
-    redirect_to Rails.application.routes.recognize_path(request.referrer)
+    redirect_back fallback_location: root_path
   end
 
   private

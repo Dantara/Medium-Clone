@@ -12,12 +12,12 @@
           th.one-of-three scope="col" Author
           th.two-of-three scope="col" Text
       tbody
-        - comments.each do |c|
+        - comments.each do |comment|
           tr
             td
-              h5 = c.user.email
+              h5 = comment.user.email
             td
-              h6 = c.text
+              h6 = comment.text
 
 .row.big_top_margin.padding_bottom
   .col-sm-6.offset-sm-3
