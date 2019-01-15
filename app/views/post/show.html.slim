@@ -1,7 +1,7 @@
 .row
   .col-sm-12
-    h2 == post.title
-    == text_area_tag :text, post.text, {class: "form-control not-resizable", readonly: true}
+    h2 = post.title
+    = text_area_tag :text, post.text, {class: "form-control not-resizable", readonly: true}
 
 .row.big_top_margin
   .col-sm-12
@@ -22,7 +22,7 @@
 .row.big_top_margin.padding_bottom
   .col-sm-6.offset-sm-3
     h2 New comment
-    == simple_form_for comment, url: comment_create_path do |f|
-      == f.input :text, input_html: {rows: 2}
-      == f.button :submit, {class: "btn-primary"}
+    = simple_form_for comment, url: comment_create_path do |f|
+      = f.input :text, input_html: {rows: 2}
+      = f.button :submit, {class: "btn-primary"}
 

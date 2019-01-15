@@ -1,8 +1,8 @@
 .row
   .col-sm-6.offset-sm-3
     h2 Editing draft
-    == simple_form_for post, url: post_update_path(post.id) do |f|
-      == f.input :title
-      == f.input :text, input_html: {rows: 20}
-      == f.button :submit, {value: "Save as a post", class: "btn-primary"}
-      == f.button :submit, {value: "Save as a draft", class: "to_the_right"}
+    = simple_form_for post, url: post_update_path(post.id) do |f|
+      = f.input :title
+      = f.input :text, input_html: {rows: 20}
+      = f.button :submit, {value: "Save as a post", class: "btn-primary"}
+      = f.button :submit, {value: "Save as a draft", class: "to_the_right"}
