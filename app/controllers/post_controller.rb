@@ -1,8 +1,8 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
-  expose :post, scope: ->{ current_user.posts }
-  expose :comment, fetch: ->{ Comment.new }
-  expose :comments, fetch: ->{ Comment.where(post_id: post.id) }
+  expose :post, parent: :current_user
+  expose :comment, id: ->{ nil }
+  expose :comments, from: :post
 
   def new
   end
