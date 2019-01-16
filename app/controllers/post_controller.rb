@@ -1,7 +1,7 @@
 class PostController < ApplicationController
   before_action :authenticate_user!
   expose :post, parent: :current_user
-  expose :comment, id: ->{ nil }
+  expose :comment
   expose :comments, from: :post
 
   def new

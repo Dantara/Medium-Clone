@@ -1,6 +1,6 @@
 class CommentController < ApplicationController
   expose :post
-  expose :comment, id: ->{ nil }, parent: :post
+  expose :comment, parent: :post
 
   def create
     comment.user_id = current_user.id
