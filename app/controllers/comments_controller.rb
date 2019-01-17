@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  expose :post, id: -> { params["comment"]["post_id"] }
+  expose :post
   expose :comment, parent: :post
 
   def create
