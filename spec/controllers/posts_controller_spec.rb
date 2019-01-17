@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PostController, type: :controller do
+RSpec.describe PostsController, type: :controller do
   before(:each) do
     @user = User.create({email: "test@test.ru", first_name: "Dantara",
     second_name: "Power", password: "TestTest"})

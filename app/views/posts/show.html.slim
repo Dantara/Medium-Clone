@@ -24,5 +24,6 @@
     h2 New comment
     = simple_form_for comment do |f|
       = f.input :text, input_html: {rows: 2}
+      = f.hidden_field :post_id, value: post.id
       = f.button :submit, {class: "btn-primary"}
 

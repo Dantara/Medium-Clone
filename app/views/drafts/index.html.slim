@@ -1,0 +1,16 @@
+.row
+  .col-sm-12
+    h2 List of drafts
+    table.table.table-bordered
+      thead.table-primary
+        tr
+          th.two-of-three scope="col" Title
+          th.one-of-three scope="col" Actions
+      tbody
+        - @drafts.each do |draft|
+          tr
+            td
+              h5 = draft.title
+            td
+              = link_to "View", draft, {class: "btn btn-primary"}
+              = link_to "Delete", draft, class: "btn btn-danger left-margin", method: :delete
