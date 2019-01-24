@@ -7,11 +7,4 @@
           th.two-of-three scope="col" Title
           th.one-of-three scope="col" Actions
       tbody
-        - @posts.each do |post|
-          tr
-            td
-              h5 = post.title
-            td
-              = link_to "View", post, {class: "btn btn-primary"}
-              - if post.user_id == current_user.id
-                = link_to "Delete", post, {class: "btn btn-danger left-margin", method: "delete"}
+        = render @posts
