@@ -1,0 +1,10 @@
+.row
+  .col-sm-12
+    h2 List of posts
+    table.table.table-bordered
+      thead.table-primary
+        tr
+          th.two-of-three scope="col" Title
+          th.one-of-three scope="col" Actions
+      tbody
+        = render @posts

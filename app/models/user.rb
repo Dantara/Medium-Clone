@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+  has_many :drafts
 
   def self.from_omniauth(access_token)
     data = access_token.info

@@ -1,0 +1,28 @@
+.row
+  .col-sm-12
+    h2 = post.title
+    = text_area_tag :text, post.text, {class: "form-control not-resizable", readonly: true}
+
+.row.big_top_margin
+  .col-sm-12
+    h2 Comments:
+    table.table.table-bordered
+      thead.table-primary
+        tr
+          th.one-of-three scope="col" Author
+          th.two-of-three scope="col" Text
+      tbody
+        - comments.each do |comment|
+          tr
+            td
+              h5 = comment.user.email
+            td
+              h6 = comment.text
+
+.row.big_top_margin.padding_bottom
+  .col-sm-6.offset-sm-3
+    h2 New comment
+    = simple_form_for comment, url: post_comments_path(post.id) do |f|
+      = f.input :text, input_html: {rows: 2}
+      = f.button :submit, {class: "btn-primary"}
+
