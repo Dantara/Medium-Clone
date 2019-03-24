@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     comment.save
-    UserMailer.with(comment: comment).new.deliver_now
+    CommentMailer.with(comment: comment).new.deliver_now
     redirect_back fallback_location: root_path
   end
 

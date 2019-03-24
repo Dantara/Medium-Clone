@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  expose :post, parent: :current_user
+  expose :post
   expose :comment
   expose :comments, from: :post
 
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:title, :text).merge(user_id: current_user.id)
   end
 
 end
