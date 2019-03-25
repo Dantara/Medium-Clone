@@ -20,6 +20,7 @@ gem 'sendgrid-actionmailer'
 gem 'letter_opener'
 gem 'devise'
 gem 'jbuilder', '~> 2.5'
+gem 'bootstrap-email', '~> 0.2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

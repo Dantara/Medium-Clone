@@ -1,0 +1,19 @@
+.container
+  .row
+    .col-sm-12
+      h3.text-center
+        = @user.first_name
+        | , your post was commented
+  .row
+    table.table.table-primary
+      tbody
+        tr
+          th Commenter name:
+          th = @commenter.first_name
+        tr
+          th Text of comment:
+          th = @comment.text
+        tr
+          th Your post:
+          th
+            a.btn.btn-light href="#{@url}" Open
