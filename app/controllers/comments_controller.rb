@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     comment.save
+    CommentMailer.with(comment: comment, url: request.original_url).new.deliver_now
     redirect_back fallback_location: root_path
   end
 
